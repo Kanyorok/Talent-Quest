@@ -12439,6 +12439,7 @@ h2.pos {
   -o-border-radius: var(--border-radius);
   -moz-border-radius: var(--border-radius);
   border: none;
+  height: 300px;
   box-shadow: 0 25px 98px 0 rgba(19, 19, 19, 0.03); }
 
 .w3l-clients .testi-des {
