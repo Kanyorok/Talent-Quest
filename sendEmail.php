@@ -1,11 +1,13 @@
 <?php
 // Include Composer's autoloader
 ini_set('max_execution_time', 300);
-require 'vendor/autoload.php'; // Adjust this path if your Composer directory is in a different location
-
-// Use PHPMailer classes
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+
+// Update the path to the actual location of PHPMailer files
+require 'PHPMailer/src/Exception.php'; // Adjust path accordingly
+require 'PHPMailer/src/PHPMailer.php'; // Adjust path accordingly
+require 'PHPMailer/src/SMTP.php';      // Adjust path accordingly
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect the form data
