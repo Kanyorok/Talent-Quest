@@ -60,12 +60,7 @@
                             <div class="row">
                                 <div class="col-sm-12 col-xs-12">
                                     <form action="functions/new_admin.php" method="post">
-                                        <!-- <div class="form-group">
-                                            <label for="exampleInputuname">User Name</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon"><i class="ti-user"></i></div>
-                                                <input type="text" class="form-control" id="exampleInputuname" placeholder="Username"> </div>
-                                        </div> -->
+                                        
                                         <div class="form-group">
                                             <label for="uname">User Name</label>
                                             <div class="input-group">

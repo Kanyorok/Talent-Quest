@@ -83,7 +83,7 @@
                                         echo 
                                         '<div class="alert alert-warning" >
                                               <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
-                                             <strong>DELETED!! </strong><p> The tenant records have been successfully deleted.</p>
+                                             <strong>DELETED!! </strong><p> The player records have been successfully deleted.</p>
                                         </div>'
                                         ;
                                     }
@@ -105,7 +105,7 @@
                                     <?php 
 
                                     if (@mysqli_num_rows($query)==0) {
-                                                    echo "<i style='color:brown;'>No Tenants to Display:( </i> ";
+                                                    echo "<i style='color:brown;'>No Players to Display:( </i> ";
                                                 }
                                                 else{
 
@@ -118,6 +118,7 @@
                                                         <th>Grade</th>
                                                         <th>Passport/Birth Cert</th>
                                                         <th>Club</th>
+                                                        <th>Player Category</th>
                                                         <th>Admission Date</th>
                                                         <th>Actions</th>
                                                     </tr>
@@ -131,6 +132,7 @@
                                                         <th>Grade</th>
                                                         <th>Passport/Birth Cert</th>
                                                         <th>Club</th>
+                                                        <th>Player Category</th>
                                                         <th>Admission Date</th>
                                                         <th>Actions</th>
                                                     </tr>
@@ -153,6 +155,7 @@
                                             <td>'.$row["class_grade"].'</td>
                                             <td>'.$row["identification_number"].'</td>
                                             <td>'.$row["club"].'</td>
+                                            <td>'.$row["player_category"].'</td>
                                             <td>'.$row["created_date"].'</td>
                                             <td><a href="#"><i class="fa fa-trash"  data-toggle="modal" data-target="#responsive-modal'.$row["playerID"].'" title="remove" style="color:red;"></i></a></td>
                                        

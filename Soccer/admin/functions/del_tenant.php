@@ -6,29 +6,14 @@ require_once "db.php";
 if (isset($_POST["deleteTenant"])) {
   //collecting data
 	$tenid = $_POST["tenID"];
-  $numberOfRooms=$_POST["num"];
-  $roomId=$_POST['hsID'];
-  $hsState=$_POST["state"];
-
-  if ($numberOfRooms==0) {
-    #set house status to 'Vacant' since there will be a free renting unit
-    $hsState='Vacant';
-  }
-  //increment number of rooms by 1
-  $numberOfRooms+=1;
-
-  //A query to update houses
-   $sq_houses="UPDATE `houses` SET `number_of_rooms`='$numberOfRooms', `house_status`='$hsState' WHERE `houseID`='$roomId'";
-   //A query to remove tenant
-  $sq_tenants="DELETE FROM `tenants` WHERE `tenants`.`tenantID`='$tenid'";
+  
+  $sq_tenants="DELETE FROM `players` WHERE `players`.`playerID`='$tenid'";
 
   $mysqli ->autocommit(FALSE);
   $status =true;
 
       //EXECUTE QUERRIES
   $mysqli->query($sq_tenants)?null: $status=false;
-  $mysqli->query($sq_houses)?null: $status=false;
-	
 
 if ($status) {
                   #successful, commit changes

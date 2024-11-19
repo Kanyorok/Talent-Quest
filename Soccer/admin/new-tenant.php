@@ -45,6 +45,7 @@ if (is_logged_in_temporary()) {
         $tschool = uncrack($_POST['school']);
         $tgrade = uncrack($_POST['classGrade']);
         $idnum = uncrack($_POST['idnum']);
+        $category = uncrack($_POST['category_group']);
         $house = uncrack($_POST['location']); //a combination of room ID and number of rooms
 
         //inserting the data as an atomic transaction. 
@@ -53,7 +54,7 @@ if (is_logged_in_temporary()) {
 
         //A query to add tenant
         $sq_tenants = "INSERT into `players` 
-                            (`player_name`,`dob`,`school_name`,`class_grade`,`identification_number`,`club`) values('$tname','$dateofbirth','$tschool','$tgrade','$idnum','$house');";
+                            (`player_name`,`dob`,`school_name`,`class_grade`,`identification_number`,`player_category`,`club`) values('$tname','$dateofbirth','$tschool','$tgrade','$idnum','$category','$house');";
 
         //Start with disabling autocommit
         $mysqli->autocommit(FALSE);
@@ -162,6 +163,23 @@ if (is_logged_in_temporary()) {
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="category_group">Player Category: *</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-map-marker"></i></div>
+                                            <select id="category_group" name="category_group" class="form-control">
+                                                <option value="">**Select Player Category**</option>
+                                                <option value="U7">U7</option>
+                                                <option value="U9">U9</option>
+                                                <option value="U11">U11</option>
+                                                <option value="U13">U13</option>
+                                                <option value="U15">U15</option>
+                                                <option value="U17">U17</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
                                         <label for="location">Club: *</label>
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-map-marker"></i></div>
@@ -241,7 +259,7 @@ if (is_logged_in_temporary()) {
             <!-- /.right-sidebar -->
         </div>
         <!-- /.container-fluid -->
-        <footer class="footer text-center"> 2018 &copy; Company Admin </footer>
+        <footer class="footer text-center"> 2024 &copy; T.Q.S. Admin </footer>
     </div>
     <!-- /#page-wrapper -->
     </div>
