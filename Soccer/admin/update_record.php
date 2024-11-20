@@ -173,7 +173,7 @@ if (isset($_GET['id'])) {
                         <ol class="breadcrumb">
                             <li><a href="#">Dashboard</a></li>
                             <li><a href="#">Account</a></li>
-                            <li class="active">Settings</li>
+                            <li class="active">Update Record</li>
                         </ol>
                     </div>
                     <!-- /.col-lg-12 -->
@@ -182,39 +182,84 @@ if (isset($_GET['id'])) {
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
-                            <h3 class="box-title m-b-0">Change Your Account Settings</h3>
-                            <p class="text-muted m-b-30 font-13"> (Password Update) </p>
+                            <h3 class="box-title m-b-0">Change User Records</h3>
+                            <p class="text-muted m-b-30 font-13"> (Update User Record) </p>
                             <div class="row">
-                                <div class="col-sm-12 col-xs-12">
-                                    <h2>Update Player Record</h2>
-                                    <form method="POST" action="">
-                                        <label for="player_name">Player Name:</label>
-                                        <input type="text" id="player_name" name="player_name" value="<?php echo $row['player_name']; ?>" required><br>
+                                <div class="col-md-12">
+                                    <div class="white-box">
+                                        <h3 class="box-title m-b-0">Change User Records</h3>
+                                        <p class="text-muted m-b-30 font-13">(Update User Record)</p>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-xs-12">
+                                                <h2 class="text-center">Update Player Record</h2>
+                                                <form method="POST" action="" class="form-horizontal">
+                                                    <div class="form-group">
+                                                        <label for="player_name" class="col-sm-3 control-label">Player Name:</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" id="player_name" name="player_name" class="form-control" value="<?php echo $row['player_name']; ?>" required>
+                                                        </div>
+                                                    </div>
 
-                                        <label for="dob">Date of Birth:</label>
-                                        <input type="date" id="dob" name="dob" value="<?php echo date('Y-m-d', strtotime($row['dob'])); ?>" required><br>
+                                                    <div class="form-group">
+                                                        <label for="dob" class="col-sm-3 control-label">Date of Birth:</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="date" id="dob" name="dob" class="form-control" value="<?php echo date('Y-m-d', strtotime($row['dob'])); ?>" required>
+                                                        </div>
+                                                    </div>
 
-                                        <label for="school_name">School Name:</label>
-                                        <input type="text" id="school_name" name="school_name" value="<?php echo $row['school_name']; ?>" required><br>
+                                                    <div class="form-group">
+                                                        <label for="school_name" class="col-sm-3 control-label">School Name:</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" id="school_name" name="school_name" class="form-control" value="<?php echo $row['school_name']; ?>" required>
+                                                        </div>
+                                                    </div>
 
-                                        <label for="class_grade">Class Grade:</label>
-                                        <input type="text" id="class_grade" name="class_grade" value="<?php echo $row['class_grade']; ?>" required><br>
+                                                    <div class="form-group">
+                                                        <label for="class_grade" class="col-sm-3 control-label">Class Grade:</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" id="class_grade" name="class_grade" class="form-control" value="<?php echo $row['class_grade']; ?>" required>
+                                                        </div>
+                                                    </div>
 
-                                        <label for="identification_number">Identification Number:</label>
-                                        <input type="text" id="identification_number" name="identification_number" value="<?php echo $row['identification_number']; ?>" required><br>
+                                                    <div class="form-group">
+                                                        <label for="identification_number" class="col-sm-3 control-label">Identification Number:</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" id="identification_number" name="identification_number" class="form-control" value="<?php echo $row['identification_number']; ?>" required>
+                                                        </div>
+                                                    </div>
 
-                                        <label for="club">Club:</label>
-                                        <input type="text" id="club" name="club" value="<?php echo $row['club']; ?>" required><br>
+                                                    <div class="form-group">
+                                                        <label for="club" class="col-sm-3 control-label">Club:</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" id="club" name="club" class="form-control" value="<?php echo $row['club']; ?>" required>
+                                                        </div>
+                                                    </div>
 
-                                        <label for="player_category">Player Category:</label>
-                                        <input type="text" id="player_category" name="player_category" value="<?php echo $row['player_category']; ?>" required><br>
+                                                    <div class="form-group">
+                                                        <label for="player_category" class="col-sm-3 control-label">Player Category:</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" id="player_category" name="player_category" class="form-control" value="<?php echo $row['player_category']; ?>" required>
+                                                        </div>
+                                                    </div>
 
-                                        <label for="image_path">Image Path:</label>
-                                        <input type="text" id="image_path" name="image_path" value="<?php echo $row['image_path']; ?>" required><br>
+                                                    <div class="form-group">
+                                                        <label for="image_path" class="col-sm-3 control-label">Image Path:</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" id="image_path" name="image_path" class="form-control" value="<?php echo $row['image_path']; ?>" required>
+                                                        </div>
+                                                    </div>
 
-                                        <input type="submit" value="Update Record">
-                                    </form>
+                                                    <div class="form-group text-center">
+                                                        <div class="col-sm-offset-3 col-sm-9">
+                                                            <input type="submit" value="Update Record" class="btn btn-primary">
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
