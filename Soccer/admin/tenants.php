@@ -1,5 +1,5 @@
 <?php
-    $pgnm="TQS: View Registered  Players";
+    $pgnm="TQS: View Mazingira Tournament Registered  Players";
     $error=' ';
 
     //require the global file for errors
@@ -75,7 +75,7 @@
                                         echo 
                                         '<div class="alert alert-success" >
                                               <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
-                                             <strong>DONE!! </strong><p> The new tenant has been added successfully.</p>
+                                             <strong>DONE!! </strong><p> The new player has been added successfully.</p>
                                         </div>'
                                         ;
                                     }
@@ -119,6 +119,7 @@
                                                         <th>Passport/Birth Cert</th>
                                                         <th>Club</th>
                                                         <th>Player Category</th>
+                                                        <th>Player Image</th>
                                                         <th>Admission Date</th>
                                                         <th>Actions</th>
                                                     </tr>
@@ -133,6 +134,7 @@
                                                         <th>Passport/Birth Cert</th>
                                                         <th>Club</th>
                                                         <th>Player Category</th>
+                                                        <th>Player Image</th>
                                                         <th>Admission Date</th>
                                                         <th>Actions</th>
                                                     </tr>
@@ -149,23 +151,28 @@
                                     
 
                                         <tr>
-                                            <td>'.$row["player_name"].'</td>
-                                            <td>'.$row["dob"].'</td>
-                                            <td>'.$row["school_name"].'</td>
-                                            <td>'.$row["class_grade"].'</td>
-                                            <td>'.$row["identification_number"].'</td>
-                                            <td>'.$row["club"].'</td>
-                                            <td>'.$row["player_category"].'</td>
-                                            <td>'.$row["created_date"].'</td>';
-                                            // Conditional logic for displaying the delete action
-                                            if ($userRole !== 'level-0') {
-                                                echo '
-                                                    <td>
-                                                        <a href="#">
-                                                            <i class="fa fa-trash" data-toggle="modal" data-target="#responsive-modal' . $row["playerID"] . '" title="remove" style="color:red;"></i>
-                                                        </a>
-                                                    </td>';
-                                            }
+                                    <td>'.$row["player_name"].'</td>
+                                    <td>'.date('Y-m-d', strtotime($row["dob"])).'</td>
+                                    <td>'.$row["school_name"].'</td>
+                                    <td>'.$row["class_grade"].'</td>
+                                    <td>'.$row["identification_number"].'</td>
+                                    <td>'.$row["club"].'</td>
+                                    <td>'.$row["player_category"].'</td>
+                                    <td><img src="'.$row["image_path"].'" alt="Player Image" style="width:100px;height:auto;"/></td>
+                                    <td>'.$row["created_date"].'</td>';
+                                    // Conditional logic for displaying the delete and update actions
+                                    if ($userRole !== 'level-0') {
+                                        echo '
+                                            <td>
+                                                <a href="update_record.php?id=' . $row["playerID"] . '">
+                                                    <i class="fa fa-edit" title="update" style="color:blue; margin-right:10px;"></i>
+                                                </a>
+                                                <a href="#">
+                                                    <i class="fa fa-trash" data-toggle="modal" data-target="#responsive-modal' . $row["playerID"] . '" title="remove" style="color:red;"></i>
+                                                </a>
+                                            </td>';
+                                    }
+
                                        echo '
 
                                             <!-- /.modal -->

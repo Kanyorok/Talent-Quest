@@ -48,13 +48,50 @@ if (is_logged_in_temporary()) {
         $category = uncrack($_POST['category_group']);
         $house = uncrack($_POST['location']); //a combination of room ID and number of rooms
 
-        //inserting the data as an atomic transaction. 
+        // Handle file upload
+        $targetDir = "uploads/"; // Define a directory to save uploaded files
+        $imageFileType = strtolower(pathinfo($_FILES["player_image"]["name"], PATHINFO_EXTENSION));
+        $targetFile = $targetDir . $idnum . '.' . $imageFileType; 
+        $uploadOk = 1;
 
-        //start with preparing SQL statements
+        // Check if image file is a real image or fake image
+        $check = getimagesize($_FILES["player_image"]["tmp_name"]);
+        if ($check !== false) {
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
 
-        //A query to add tenant
-        $sq_tenants = "INSERT into `players` 
-                            (`player_name`,`dob`,`school_name`,`class_grade`,`identification_number`,`player_category`,`club`) values('$tname','$dateofbirth','$tschool','$tgrade','$idnum','$category','$house');";
+        // Check file size (limit to 2MB)
+        if ($_FILES["player_image"]["size"] > 2000000) {
+            echo "Sorry, your file is too large.";
+            $uploadOk = 0;
+        }
+
+        // Allow certain file formats (optional but recommended for security)
+        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, your file was not uploaded.";
+        } else {
+            // Move the uploaded file to the target directory
+            if (move_uploaded_file($_FILES["player_image"]["tmp_name"], $targetFile)) {
+                echo "The file " . htmlspecialchars(basename($_FILES["player_image"]["name"])) . " has been uploaded.";
+
+                // Use the image path ($targetFile) in your SQL insertion
+                $sq_tenants = "INSERT INTO `players` (`player_name`, `dob`, `school_name`, `class_grade`, `identification_number`, `player_category`, `club`, `image_path`) 
+                           VALUES ('$tname', '$dateofbirth', '$tschool', '$tgrade', '$idnum', '$category', '$house', '$targetFile');";
+
+                // Continue with database insertion...
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
 
         //Start with disabling autocommit
         $mysqli->autocommit(FALSE);
@@ -120,7 +157,7 @@ if (is_logged_in_temporary()) {
                         <p class="text-muted m-b-30 font-13"> Fill in the form below: </p>
                         <div class="row">
                             <div class="col-sm-12 col-xs-12">
-                                <form action="new-tenant.php" method="post">
+                                <form action="new-tenant.php" method="post" enctype="multipart/form-data">
 
                                     <div class="form-group">
                                         <label for="hname">Player's Full Name: *</label>
@@ -143,6 +180,14 @@ if (is_logged_in_temporary()) {
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-user"></i></div>
                                             <input type="number" min="1000" required name="idnum" class="form-control" id="idnum" placeholder="Birth Cert/Passport Number...">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="image">Player's Image:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-file-image-o"></i></div>
+                                            <input type="file" name="player_image" class="form-control" id="image" accept="image/*">
                                         </div>
                                     </div>
 
@@ -197,7 +242,9 @@ if (is_logged_in_temporary()) {
                                         </div>
                                     </div>
 
-                                    <button type="submit" name="admitTenant" class="btn btn-success btn-lg waves-effect waves-light m-r-10 center"><i class="fa fa-plus-circle fa-lg"></i> Admit This Player</button>
+                                    <button type="submit" name="admitTenant" class="btn btn-success btn-lg waves-effect waves-light m-r-10 center">
+                                        <i class="fa fa-plus-circle fa-lg"></i> Admit This Player
+                                    </button>
                                 </form>
                             </div>
                         </div>
