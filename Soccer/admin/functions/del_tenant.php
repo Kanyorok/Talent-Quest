@@ -1,40 +1,42 @@
-<?php 
+<?php
+// Start output buffering
+ob_start();
 
- 
 require_once "db.php";
 
 if (isset($_POST["deleteTenant"])) {
-  //collecting data
-	$tenid = $_POST["tenID"];
-  
-  $sq_tenants="DELETE FROM `players` WHERE `players`.`playerID`='$tenid'";
+    // Collecting data
+    $tenid = $_POST["tenID"];
 
-  $mysqli ->autocommit(FALSE);
-  $status =true;
+    $sq_tenants = "DELETE FROM `players` WHERE `players`.`playerID` = '$tenid'";
 
-      //EXECUTE QUERRIES
-  $mysqli->query($sq_tenants)?null: $status=false;
+    $mysqli->autocommit(FALSE);
+    $status = true;
 
-if ($status) {
-                  #successful, commit changes
-                  $mysqli ->commit();
+    // Execute queries
+    $mysqli->query($sq_tenants) ? null : $status = false;
 
-                        //head to index and report as an error state.
-                   header('Location:../tenants.php?deleted');
-              }
-            else
-              {
-                      #rollback changes
-                    $mysqli -> rollback();
-                    //return back to page with error state
-                    header('Location:../tenants.php?del_error');
-              }
+    if ($status) {
+        // Successful, commit changes
+        $mysqli->commit();
 
+        // Redirect with success state
+        header('Location: ../tenants.php?deleted');
+        exit();
+    } else {
+        // Rollback changes
+        $mysqli->rollback();
+
+        // Redirect with error state
+        header('Location: ../tenants.php?del_error');
+        exit();
+    }
+} else {
+    // Redirect if no deleteTenant POST data
+    header('Location: ../tenants.php?del_error');
+    exit();
 }
-else {
-	header('Location:../tenants.php?del_error');
-}
 
-	
-
+// End output buffering
+ob_end_flush();
 ?>
