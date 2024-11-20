@@ -61,7 +61,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
             <div class="navbar-header"> <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
-                <div class="top-left-part"><a class="logo" href="index.php"><b><img src="../plugins/images/icon.png" style="width: 30px; height: 30px;" alt="home" /></b><span class="hidden-xs"><b>Company</b></span></a></div>
+                <div class="top-left-part"><a class="logo" href="new-tenant.php"><b><img src="../plugins/images/icon.png" style="width: 30px; height: 30px;" alt="home" /></b><span class="hidden-xs"><b>Company</b></span></a></div>
                 <ul class="nav navbar-top-links navbar-left hidden-xs">
                     <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
                     <li>
@@ -103,20 +103,9 @@
                             <li><a href="login.php"><i class="fa fa-power-off"></i> Logout</a></li>
                         </ul>
                     </li>
-                    <li class="nav-small-cap m-t-10">--- Main Menu</li>
-                    <li> <a href="tenants.php" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> View Players </a>
-                    </li>
-                                      
-                     <li class="nav-small-cap">--- Other</li>
-                    <li> <a href="#" class="waves-effect"><i data-icon="H" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Access<span class="fa arrow"></span></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="users.php">Administrators</a></li>
-                            <li><a href="new-user.php">Create Admin</a></li>
-                            
-                        </ul>
-                    </li>
                     
-                    <li><a href="login.php" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
+                    
+                    
                    
                 </ul>
             </div>
@@ -146,18 +135,7 @@
                             <div class="row">
                                 <div class="col-sm-12 col-xs-12">
                                     <form action="functions/settings.php" method="post">
-                                        <!-- <div class="form-group">
-                                            <label for="exampleInputuname">User Name</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon"><i class="ti-user"></i></div>
-                                                <input type="text" class="form-control" id="exampleInputuname" placeholder="Username"> </div>
-                                        </div> -->
-                                      <!--   <div class="form-group">
-                                            <label for="exampleInputEmail1">Email address</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon"><i class="ti-email"></i></div>
-                                                <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required=""> </div>
-                                        </div> -->
+                                        
 
                                         <!-- EMAIL HIDDEN -->
                                         <input type="hidden" name="email" value="<?php echo $_SESSION['email']; ?>" />

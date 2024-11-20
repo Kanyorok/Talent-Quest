@@ -114,10 +114,11 @@ $database='sports_club';
       if (isset($_SESSION['email'])) {
         //set global variables for logged users and return true
         global $username;
+        global $userRole;
 
         $email=$_SESSION["email"];
         $username=substr($email, 0,strpos($email,"@"));//user name
-
+        $userRole = $_SESSION["role"];
         return true;
       }
       else

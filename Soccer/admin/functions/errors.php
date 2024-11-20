@@ -72,6 +72,15 @@
             
             </div>";
             	}
+                elseif ($err_state==3.5) 
+            	{
+            		$error="<div id='dlt' class='alert alert-slim w3-card-4 alert-success fade in'> 
+                <h1><a href=\"index.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\"> &times;</a> </h1>
+                <div> <i class='fa fa-user fa-3x'></i> </div>
+                <strong>Password Updated<br></strong>
+            
+            </div>";
+            	}
             	elseif ($err_state==4) 
             	{
             		$error="<div id='dlt' class='alert alert-slim w3-card-4 alert-danger fade in'> 

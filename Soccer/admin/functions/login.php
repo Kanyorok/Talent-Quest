@@ -34,5 +34,5 @@ echo "<a href='logout.php'>Logout</a>";
 }else{
 	echo "string";
 // When the user visits the page first time, simple login form will be displayed.
-
+}
 ?>

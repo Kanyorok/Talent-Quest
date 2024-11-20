@@ -156,9 +156,17 @@
                                             <td>'.$row["identification_number"].'</td>
                                             <td>'.$row["club"].'</td>
                                             <td>'.$row["player_category"].'</td>
-                                            <td>'.$row["created_date"].'</td>
-                                            <td><a href="#"><i class="fa fa-trash"  data-toggle="modal" data-target="#responsive-modal'.$row["playerID"].'" title="remove" style="color:red;"></i></a></td>
-                                       
+                                            <td>'.$row["created_date"].'</td>';
+                                            // Conditional logic for displaying the delete action
+                                            if ($userRole !== 'level-0') {
+                                                echo '
+                                                    <td>
+                                                        <a href="#">
+                                                            <i class="fa fa-trash" data-toggle="modal" data-target="#responsive-modal' . $row["playerID"] . '" title="remove" style="color:red;"></i>
+                                                        </a>
+                                                    </td>';
+                                            }
+                                       echo '
 
                                             <!-- /.modal -->
                                             <div id="responsive-modal'.$row["playerID"].'" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
