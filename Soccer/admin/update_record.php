@@ -7,18 +7,18 @@ require_once "functions/db.php";
 
 // Initialize the session
 
-// session_start();
+session_start();
 
 // If session variable is not set it will redirect to login page
 
-// if (!isset($_SESSION['email']) || empty($_SESSION['email'])) {
+if (!isset($_SESSION['email']) || empty($_SESSION['email'])) {
 
-//     header("location: login.php");
+    header("location: login.php");
 
-//     exit;
-// }
+    exit;
+}
 
-// $email = $_SESSION['email'];
+$email = $_SESSION['email'];
 
 // Check if the 'id' parameter is set in the URL
 if (isset($_GET['id'])) {
