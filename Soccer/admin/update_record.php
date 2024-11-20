@@ -1,20 +1,16 @@
 <?php
-// Connect to your database
-include "functions/db.php";
-
+// Start output buffering to avoid headers already sent issues
 ob_start();
+
+// Connect to your database
 require_once "functions/db.php";
 
 // Initialize the session
-
 session_start();
 
-// If session variable is not set it will redirect to login page
-
+// If session variable is not set, redirect to login page
 if (!isset($_SESSION['email']) || empty($_SESSION['email'])) {
-
     header("location: login.php");
-
     exit;
 }
 
@@ -56,8 +52,8 @@ if (isset($_GET['id'])) {
         $updateStmt->bind_param("ssssssssi", $playerName, $dob, $schoolName, $classGrade, $identificationNumber, $club, $playerCategory, $imagePath, $playerID);
 
         if ($updateStmt->execute()) {
-
-            header('location:tenants.php?state=3.6');
+            header('Location: tenants.php?state=3.6');
+            exit;
         } else {
             echo "Error updating record: " . $conn->error;
         }
@@ -66,9 +62,7 @@ if (isset($_GET['id'])) {
     echo "Invalid request.";
     exit;
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
