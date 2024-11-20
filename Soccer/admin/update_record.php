@@ -7,7 +7,7 @@ require_once "functions/db.php";
 
 // Initialize the session
 
-session_start();
+// session_start();
 
 // If session variable is not set it will redirect to login page
 
