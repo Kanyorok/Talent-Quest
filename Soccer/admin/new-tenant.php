@@ -184,7 +184,7 @@ if (is_logged_in_temporary()) {
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="image">Player's Image:</label>
+                                        <label for="image">Player's Birth Cert Image:</label>
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-file-image-o"></i></div>
                                             <input type="file" name="player_image" class="form-control" id="image" accept="image/*">

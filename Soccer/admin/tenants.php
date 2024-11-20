@@ -119,7 +119,7 @@
                                                         <th>Passport/Birth Cert</th>
                                                         <th>Club</th>
                                                         <th>Player Category</th>
-                                                        <th>Player Image</th>
+                                                        <th>Birth Cert Image</th>
                                                         <th>Admission Date</th>
                                                         <th>Actions</th>
                                                     </tr>
@@ -134,7 +134,7 @@
                                                         <th>Passport/Birth Cert</th>
                                                         <th>Club</th>
                                                         <th>Player Category</th>
-                                                        <th>Player Image</th>
+                                                        <th>Birth Cert Image</th>
                                                         <th>Admission Date</th>
                                                         <th>Actions</th>
                                                     </tr>
