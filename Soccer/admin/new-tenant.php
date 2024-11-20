@@ -153,7 +153,7 @@ if (is_logged_in_temporary()) {
                         ?>
                     </div>
                     <div class="white-box">
-                        <h3 class="box-title m-b-0"><i class="fa fa-user fa-3x"></i> Admit A New U11 Player</h3>
+                        <h3 class="box-title m-b-0"><i class="fa fa-user fa-3x"></i> Admit A New Player</h3>
                         <p class="text-muted m-b-30 font-13"> Fill in the form below: </p>
                         <div class="row">
                             <div class="col-sm-12 col-xs-12">

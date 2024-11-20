@@ -144,8 +144,7 @@
                                                 }
 
                                         while ($row = @mysqli_fetch_array($query)) {
-                                            // $noOfRooms = $row["number_of_rooms"];
-                                             //$hsStatus=$row['house_status'];
+                                            
 
                                     echo '
                                     
